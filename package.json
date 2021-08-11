@@ -1,0 +1,63 @@
+{
+  "name": "@xm/transform-data",
+  "description": "工具函数",
+  "version": "1.6.6",
+  "main": "dist/lib/transform.js",
+  "module": "dist/es/transform.js",
+  "typings": "transform.d.ts",
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "rm -rf dist/* & npm run build-commonjs & npm run build-es & npm run build-umd-min & npm run build-umd",
+    "build-es": "cross-env BABEL_ENV=es  babel src -d dist/es --copy-files",
+    "build-commonjs": "cross-env BABEL_ENV=lib  babel src -d dist/lib --copy-files",
+    "build-umd": "webpack --output-filename umd/transformData.js",
+    "build-umd-min": "cross-env NODE_ENV=production webpack --output-filename umd/transformData.min.js",
+    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@git.shinemo.com:7999/xnpm/transform-data.git"
+  },
+  "bugs": {
+    "url": ""
+  },
+  "keywords": [
+    "transform-data",
+    "transform",
+    "js-tool-function"
+  ],
+  "author": "cuibq@shinemo.com",
+  "contributors": [
+    "cuibq"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.10.1",
+    "@babel/plugin-proposal-export-default-from": "^7.10.1",
+    "@babel/plugin-proposal-function-bind": "^7.10.1",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.10.1",
+    "@babel/plugin-proposal-optional-chaining": "^7.10.1",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "@babel/preset-stage-0": "^7.8.3",
+    "@babel/preset-typescript": "^7.14.5",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "bluebird": "^3.5.0",
+    "conventional-changelog-cli": "^2.0.34",
+    "coveralls": "^3.0.8",
+    "cp-cli": "^2.0.0",
+    "cross-env": "^7.0.2",
+    "echarts": "^4.8.0",
+    "istanbul": "^1.0.0-alpha.2",
+    "jimi-web-changelog": "^0.1.7",
+    "tern": "^0.24.3",
+    "webpack": "^5.45.1",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.7.2"
+  },
+  "peerDependencies": {},
+  "dependencies": {}
+}

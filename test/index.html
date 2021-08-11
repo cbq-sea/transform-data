@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="../dist/umd/transformData.js"></script>
+  </head>
+  <body>
+    <script>
+      const debugData = {
+        jtyx_rjbyl_id: ['1', '2', '3', '4', '5'],
+        xzqh: ['411000', '411000', '411000', '411000', '411000'],
+        tjnf: ['2016', '2017', '2018', '2019', '2020'],
+        rjjdc: ['151.00', '164.00', '176.00', '177.00', '180.00'],
+        gxsj: [
+          '2021-03-09 14:33:57',
+          '2021-03-09 14:34:47',
+          '2021-03-09 14:34:47',
+          '2021-03-09 14:34:47',
+          '2021-03-09 14:34:47',
+        ],
+      }
+
+      const t = new TransformData.default()
+
+      console.log(
+        t.getOptionXuchang(debugData, {
+          componentType: 10,
+          x: 'tjnf',
+          y: [
+            {
+              field: 'xzqh',
+              name: '增速',
+              unit: '%',
+            },
+            {
+              field: 'rjjdc',
+              name: '生产总额',
+              unit: '亿元',
+            },
+          ],
+        })
+      )
+
+      const cubeData = [
+        {
+          'dimension_0': '1月',
+          'measure_0': 20,
+          'measure_1': 30,
+          'measure_2': 40,
+        },
+        {
+          'dimension_0': '2月',
+          'measure_0': 30,
+          'measure_1': 40,
+          'measure_2': 50,
+        },
+        {
+          'dimension_0': '3月',
+          'measure_0': 2,
+          'measure_1': 3,
+          'measure_2': 4,
+        },
+        {
+          'dimension_0': '4月',
+          'measure_0': 55,
+          'measure_1': 6,
+          'measure_2': 7,
+        },
+        {
+          'dimension_0': '5月',
+          'measure_0': 8,
+          'measure_1': 9,
+          'measure_2': 10,
+        },
+      ]
+
+      const cubeConfig = {
+        title: '报表005',
+        groupId: 5,
+        name: 'report02',
+        description: '报表005描述',
+        type: 'add',
+        modelName: 'mobancxcza',
+        componentType:8,
+        dimensionMap: {
+          dimension_0: {
+            completeName: 'xiaoshourenyuan',
+            displayName: '销售人员',
+            title: '销售人员',
+            configure: '{"dataType":"decimal","decimalPointCount":2}',
+          },
+        },
+        measureMap: {
+          measure_0: {
+            func: 'sum',
+            completeName: 'xiaoshoue',
+            displayName: '销售额',
+            title: '销售额',
+            configure: '{"dataType":"decimal","decimalPointCount":2}',
+          },
+          measure_1: {
+            func: 'count',
+            completeName: 'xiaoshourenyuan',
+            displayName: '销售人员',
+            title: '销售人员',
+            configure: '{"dataType":"percentage","decimalPointCount":2}',
+          },
+          measure_2: {
+            func: 'count',
+            completeName: 'xiaoshoue',
+            displayName: '销售额',
+            title: '销售额',
+            configure: '{"dataType":"percentage","decimalPointCount":2}',
+          },
+        },
+      }
+
+
+
+    </script>
+  </body>
+</html>
